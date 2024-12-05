@@ -1,0 +1,33 @@
+export AWS_CLI_AUTO_PROMPT=on-partial
+env | grep AWS_CLI
+aws s3 rb s3://my-example-bucket-abc-1
+
+aws s3 rm s3://my-example-bucket-abc-1 --recursive
+aws s3 ls s3://my-example-bucket-abc-1
+aws s3 rb s3://my-example-bucket-abc-1
+
+aws s3 ls
+
+env | grep AWS_
+aws s3api create-bucket --bucket my-example-bucket-abcde-01 --region us-east-1
+
+aws s3api list-buckets
+
+aws s3api list-buckets --query Buckets[].Name
+
+aws s3api list-buckets --query Buckets[].Name --output yaml
+
+aws s3api list-buckets --query Buckets[].Name --output table
+
+aws s3api list-buckets --query "Buckets[?Name = 'my-example-bucket-abcde-01']"
+
+aws s3api list-buckets --query "Buckets[?Name = 'my-example-bucket-abcde-01'].Name"
+
+aws s3api list-objects --bucket my-example-bucket-abcde-01
+
+aws s3api get-object --bucket my-example-bucket-abcde-01 --key hello.txt 
+
+aws s3api put-object --bucket my-example-bucket-abcde-01 --key world.txt content plain/text --body hello.txt 
+
+aws s3api get-object --bucket my-example-bucket-abcde-01 --key hello.txt world.txt 
+aws s3api put-object --bucket my-example-bucket-abcde-01 --key world2.txt --content-type plain/txt --body world.txt
